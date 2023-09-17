@@ -1,4 +1,4 @@
-package caritfy.shop.shopcaritfy.dto.responses;
+package cartify.shop.shopcartify.dto.responses;
 
 import lombok.Data;
 

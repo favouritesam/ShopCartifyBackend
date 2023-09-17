@@ -1,4 +1,4 @@
-package caritfy.shop.shopcaritfy.exceptions;
+package cartify.shop.shopcartify.exceptions;
 
 public class ShopCartifyBaseException extends RuntimeException{
     ShopCartifyBaseException(String message){

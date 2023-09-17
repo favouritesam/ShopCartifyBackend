@@ -1,4 +1,4 @@
-package caritfy.shop.shopcaritfy;
+package cartify.shop.shopcartify;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

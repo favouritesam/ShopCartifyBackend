@@ -1,4 +1,4 @@
-package caritfy.shop.shopcaritfy;
+package cartify.shop.shopcartify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
