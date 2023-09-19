@@ -8,4 +8,5 @@ import lombok.Data;
 @Builder
 
 public class SuperMarketAdminRegistrationRequest {
+    private String email;
 }

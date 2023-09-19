@@ -26,6 +26,10 @@ public class SuperMarketServiceTest {
         assertEquals(supermarketRegistrationResponse.getSupermarketEmail(), supermarketRegistrationRequest.getSupermarketEmail());
         assertEquals(supermarketRegistrationResponse.getSupermarketName(), supermarketRegistrationRequest.getSupermarketName());
     }
+    @Test
+    public void testSupermarketCanAddProduct() {
+          
+    }
 
     private SupermarketRegistrationRequest createSupermarketRegistrationRequest(String superMarketName) {
         return  SupermarketRegistrationRequest.builder()

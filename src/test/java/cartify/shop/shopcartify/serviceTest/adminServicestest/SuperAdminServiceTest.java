@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 
 import static cartify.shop.shopcartify.enums.UserRole.SUPER_ADMIN;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class SuperAdminServiceTest {
@@ -31,9 +32,14 @@ public class SuperAdminServiceTest {
     public void testSupermarketAdminCanRegister(){
         SuperMarketAdminRegistrationResponse response =
                 supermarketAdminService.registerSupermarketAdmin(createSuperMarketAdminRegistrationRequest());
+
+//        assertEquals(response)
+
     }
+
     private SuperMarketAdminRegistrationRequest createSuperMarketAdminRegistrationRequest(){
         SuperMarketAdminRegistrationRequest request = SuperMarketAdminRegistrationRequest.builder()
+//                .adminId(
                 .build();
 
                 return request;
@@ -42,7 +48,7 @@ public class SuperAdminServiceTest {
     private ShopCartifyUser createSuperAdmin(){
         ShopCartifyUser superAdmin = ShopCartifyUser.builder()
                 .email("superadmin@example.com")
-                .role(SUPER_ADMIN)
+//                .role(SUPER_ADMIN)
                 .password("P@ssw0rd")
                 .firstName("Super Admin")
                 .lastName("name")
