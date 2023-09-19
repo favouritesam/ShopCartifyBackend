@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 
-public class QrCodeGenerator {
+public class QrCodeGeneratorFactory {
 
     public static byte[] generateByteQRCode(String text, int width, int height) {
         ByteArrayOutputStream outputStream = null;

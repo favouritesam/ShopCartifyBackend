@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 public class SuperMarketServiceTest {
     @Autowired
@@ -18,6 +20,9 @@ public class SuperMarketServiceTest {
         String superMarketName = "Fiddovea Supermarket";
         SupermarketRegistrationRequest supermarketRegistrationRequest = createSupermarketRegistrationRequest(superMarketName);
         SupermarketRegistrationResponse supermarketRegistrationResponse = supermarketService.registerNewSupermarket(supermarketRegistrationRequest);
+
+        assertEquals(supermarketRegistrationResponse.getSupermarketEmail(), supermarketRegistrationRequest.getSupermarketEmail());
+        assertEquals(supermarketRegistrationResponse.getSupermarketName(), supermarketRegistrationRequest.getSupermarketName());
     }
 
     private SupermarketRegistrationRequest createSupermarketRegistrationRequest(String superMarketName) {

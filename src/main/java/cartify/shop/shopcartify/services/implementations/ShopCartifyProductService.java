@@ -5,7 +5,7 @@ import cartify.shop.shopcartify.dto.reqests.UpdateProductDetailRequest;
 import cartify.shop.shopcartify.dto.responses.NewProductResponse;
 import cartify.shop.shopcartify.dto.responses.UpdateProductDetailResponse;
 import cartify.shop.shopcartify.exceptions.ProductNotFoundException;
-import cartify.shop.shopcartify.factory.QrCodeGenerator;
+import cartify.shop.shopcartify.factory.QrCodeGeneratorFactory;
 import cartify.shop.shopcartify.models.Product;
 import cartify.shop.shopcartify.replica.ProductReplica;
 import cartify.shop.shopcartify.repositories.ProductRepository;
@@ -39,7 +39,7 @@ public class ShopCartifyProductService implements ProductService {
 
         String text = createQrCodeText(product);
 
-        QrCodeGenerator.generateImageQRCode(text, 300, 300,imageQrcodePath + "generalPicturePath");
+        QrCodeGeneratorFactory.generateImageQRCode(text, 300, 300,imageQrcodePath + "generalPicturePath");
 
         Product savedProduct = productRepository.save(product);
 
