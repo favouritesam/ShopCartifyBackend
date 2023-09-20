@@ -11,4 +11,5 @@ public class NewProductRequest {
     private BigDecimal productPrice;
     private String productImageUrl;
     private String productQrCodeUrl;
+//    private String supermarketName;
 }

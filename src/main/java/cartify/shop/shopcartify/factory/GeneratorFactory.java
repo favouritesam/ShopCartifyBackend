@@ -4,12 +4,11 @@ import cartify.shop.shopcartify.models.Supermarket;
 import cartify.shop.shopcartify.repositories.SupermarketRepository;
 import cartify.shop.shopcartify.utils.Letter;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.util.Optional;
-import java.util.Random;
 
 @AllArgsConstructor
 @Component
@@ -18,7 +17,8 @@ public class GeneratorFactory {
     private static Character [] capitalLetters = Letter.getCapitalLetters();
     private static Character [] smallLetters = Letter.getSmallLetters();
     private static final SecureRandom random = new SecureRandom();
-    private final SupermarketRepository supermarketRepository;
+    @Autowired
+    private SupermarketRepository supermarketRepository;
 
 
     public String generateSupermarketCode() {
