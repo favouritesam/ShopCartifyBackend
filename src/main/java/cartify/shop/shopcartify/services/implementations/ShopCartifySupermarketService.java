@@ -2,16 +2,17 @@ package cartify.shop.shopcartify.services.implementations;
 
 import cartify.shop.shopcartify.dto.reqests.SupermarketRegistrationRequest;
 import cartify.shop.shopcartify.dto.responses.SupermarketRegistrationResponse;
+import cartify.shop.shopcartify.exceptions.ProductNotFoundException;
 import cartify.shop.shopcartify.factory.GeneratorFactory;
 import cartify.shop.shopcartify.models.Supermarket;
 import cartify.shop.shopcartify.repositories.SupermarketRepository;
+import cartify.shop.shopcartify.services.interfaces.ProductService;
 import cartify.shop.shopcartify.services.interfaces.SupermarketService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -19,6 +20,7 @@ import java.util.Optional;
 public class ShopCartifySupermarketService implements SupermarketService {
     private final ModelMapper mapper = new ModelMapper();
     private final GeneratorFactory generatorFactory ;
+    private final ProductService productService;
 
     private final SupermarketRepository supermarketRepository;
     @Override
@@ -39,29 +41,19 @@ public class ShopCartifySupermarketService implements SupermarketService {
     }
 
     @Override
-    public Optional<Long> viewProduct(Long id) {
-        return Optional.empty();
+    public Supermarket findProductById(Long id) {
+        return supermarketRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product not found"));
+    }
+    public Supermarket findBySuperMarketCode(String code){
+        return supermarketRepository.findBySupermarketCode(code).orElseThrow(()-> new ProductNotFoundException("Product not found"));
     }
 
     @Override
-    public Supermarket findBySuperMarketCode(String code) {
-        return null;
+    public List<Supermarket> findAllSupermarket(List<Long> id) {
+        return supermarketRepository.findAll();
     }
 
-    @Override
-    public List<Supermarket> findAllSupermarket() {
-        return null;
-    }
 
-    @Override
-    public List<SupermarketAdmin> findByEmail(String email) {
-        return null;
-    }
 
-//    @Override
-//    public ClassRoom findById(String id) {
-//        classRoomRepo.findByClassLevel(id);
-//
-//        return new ClassRoom();
-//    }
+
 }

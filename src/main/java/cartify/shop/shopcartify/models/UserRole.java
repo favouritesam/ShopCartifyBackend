@@ -1,6 +1,8 @@
 package cartify.shop.shopcartify.models;
 
 public enum UserRole {
-    USER,
-    ADMIN
+    CUSTOMER,
+    SUPER_ADMIN,
+    SUPERMARKET_ADMIN,
+    CHECKOUT_ADMIN,
 }

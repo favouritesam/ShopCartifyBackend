@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Data
 @Builder
@@ -31,8 +34,12 @@ public class ShopCartifyUser {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
-    private UserRole role;
+    private List<UserRole> role;
 
     private boolean isEnabled = false;
+
+    public ShopCartifyUser() {
+        this.role = new ArrayList<>();
+    }
 
 }

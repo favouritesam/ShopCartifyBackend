@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import static cartify.shop.shopcartify.models.UserRole.ADMIN;
+import static cartify.shop.shopcartify.models.UserRole.*;
 
 
 @Service
@@ -37,10 +37,11 @@ public class ShopCartifyUserService implements UserService {
         if (user.isPresent()) throw new UserAlreadyExistsException("User with email: " + request.getEmail() + " already exist");
         var newUser = new ShopCartifyUser();
         modelMapper.map(request, newUser);
-        newUser.setRole(ADMIN);
+        newUser.getRole().add(CUSTOMER);
         var savedUser = userRepository.save(newUser);
         UserRegistrationResponse response = modelMapper.map(savedUser, UserRegistrationResponse.class);
         response.setMessage("Success! please check your email to complete your registration");
+
         return savedUser;
     }
 
